@@ -1,0 +1,5 @@
+vendor/
+.idea/
+build/
+coverage/
+coverage.xml

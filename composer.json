@@ -1,0 +1,29 @@
+{
+  "name": "karriere/phpspec-matchers",
+  "description": "phpspec extension with a collection of additional matchers",
+  "type": "phpspec-extension",
+  "homepage": "https://github.com/karriereat/phpspec-matchers",
+  "authors": [
+    {
+      "name": "Johannes Pichler",
+      "email": "johannes.pichler@karriere.at"
+    }
+  ],
+  "keywords": [
+    "phpspec",
+    "matchers",
+    "tdd",
+    "json"
+  ],
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">=5.6",
+    "phpspec/phpspec": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Karriere\\PhpSpecMatchers\\": "src/"
+    }
+  },
+  "minimum-stability": "stable"
+}

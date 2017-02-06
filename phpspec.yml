@@ -1,0 +1,6 @@
+suites:
+    main:
+        namespace: Karriere\PhpSpecMatchers
+        psr4_prefix: Karriere\PhpSpecMatchers
+        src_path: src
+        spec_prefix: spec
