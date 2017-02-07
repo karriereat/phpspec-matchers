@@ -11,10 +11,10 @@ class RangeBetweenMatcher implements Matcher
      * Checks if matcher supports provided subject and matcher name.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
      *
-     * @return Boolean
+     * @return bool
      */
     public function supports($name, $subject, array $arguments)
     {
@@ -25,8 +25,9 @@ class RangeBetweenMatcher implements Matcher
      * Evaluates positive match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function positiveMatch($name, $subject, array $arguments)
@@ -34,7 +35,7 @@ class RangeBetweenMatcher implements Matcher
         if (!$this->isInRange($arguments[0], $arguments[1], $subject)) {
             throw new FailureException(
                 sprintf(
-                    "the return value %d should be in range %d-%d",
+                    'the return value %d should be in range %d-%d',
                     $subject,
                     $arguments[0],
                     $arguments[1]
@@ -47,8 +48,9 @@ class RangeBetweenMatcher implements Matcher
      * Evaluates negative match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function negativeMatch($name, $subject, array $arguments)
@@ -56,7 +58,7 @@ class RangeBetweenMatcher implements Matcher
         if ($this->isInRange($arguments[0], $arguments[1], $subject)) {
             throw new FailureException(
                 sprintf(
-                    "the return value %d should not be in range %d-%d",
+                    'the return value %d should not be in range %d-%d',
                     $subject,
                     $arguments[0],
                     $arguments[1]
@@ -68,7 +70,7 @@ class RangeBetweenMatcher implements Matcher
     /**
      * Returns matcher priority.
      *
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {
@@ -76,9 +78,10 @@ class RangeBetweenMatcher implements Matcher
     }
 
     /**
-     * check if all values of an array are numeric
+     * check if all values of an array are numeric.
      *
      * @param $array array of values to check
+     *
      * @return bool true if all contained values are numeric
      */
     private function isNumericArray($array)
@@ -93,11 +96,12 @@ class RangeBetweenMatcher implements Matcher
     }
 
     /**
-     * check if the given value is in range of min and max value
+     * check if the given value is in range of min and max value.
      *
      * @param $min int|float the minimum value
      * @param $max int|float the maximum value
      * @param $value int|float the value to check
+     *
      * @return bool true if the value is in the range
      */
     private function isInRange($min, $max, $value)
