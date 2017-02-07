@@ -2,6 +2,7 @@
 <span>&nbsp;&nbsp;&nbsp;</span>
 [![Build Status](https://travis-ci.org/karriereat/phpspec-matchers.svg?branch=master)](https://travis-ci.org/karriereat/phpspec-matchers)
 [![codecov](https://codecov.io/gh/karriereat/phpspec-matchers/branch/master/graph/badge.svg)](https://codecov.io/gh/karriereat/phpspec-matchers)
+[![StyleCI](https://styleci.io/repos/81121039/shield?branch=master)](https://styleci.io/repos/81121039)
 
 
 # Collection of phpspec Matchers
