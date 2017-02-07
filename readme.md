@@ -1,7 +1,8 @@
 <a href="https://www.karriere.at/" target="_blank"><img width="200" src="http://www.karriere.at/images/layout/katlogo.svg"></a>
 <span>&nbsp;&nbsp;&nbsp;</span>
-[![Build Status](https://travis-ci.org/fetzi/phpspec-matchers.svg?branch=master)](https://travis-ci.org/fetzi/phpspec-matchers)
-[![codecov](https://codecov.io/gh/fetzi/phpspec-matchers/branch/master/graph/badge.svg)](https://codecov.io/gh/fetzi/phpspec-matchers)
+[![Build Status](https://travis-ci.org/karriereat/phpspec-matchers.svg?branch=master)](https://travis-ci.org/karriereat/phpspec-matchers)
+[![codecov](https://codecov.io/gh/karriereat/phpspec-matchers/branch/master/graph/badge.svg)](https://codecov.io/gh/karriereat/phpspec-matchers)
+
 
 # Collection of phpspec Matchers
 
