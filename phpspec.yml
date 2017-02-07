@@ -1,5 +1,12 @@
+suites:
+  main:
+    namespace: Karriere\PhpSpecMatchers
+    psr4_prefix: Karriere\PhpSpecMatchers
+    src_path: src
+    spec_prefix: spec
+
 extensions:
-    - PhpSpec\Extension\CodeCoverageExtension
+    PhpSpecCodeCoverage\CodeCoverageExtension: ~
 
 code_coverage:
   format:
