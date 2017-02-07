@@ -40,7 +40,7 @@ class BeJsonMatcherSpec extends ObjectBehavior
     function it_should_succeed_on_negative_match()
     {
         $this->negativeMatch('beJson', 'a string', [])->shouldReturn(null);
-        $this->negativeMatch('beJson', '', [])->shouldReturn(null);
+        $this->negativeMatch('beJson', '{', [])->shouldReturn(null);
     }
 
     function it_should_throw_an_exception_for_failing_negative_match()
