@@ -10,6 +10,11 @@ You can install the package via composer
 composer require karriere/phpspec-matchers
 ```
 
+To be able to use the matchers you need to add the following definition to your `phpspec.yml`
+```php
+extensions:
+    Karriere\PhpSpecMatchers\Extension: ~
+```
 ## Matchers
 
 ### beAnyOf
