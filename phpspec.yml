@@ -1,6 +1,12 @@
-suites:
-    main:
-        namespace: Karriere\PhpSpecMatchers
-        psr4_prefix: Karriere\PhpSpecMatchers
-        src_path: src
-        spec_prefix: spec
+extensions:
+    - PhpSpec\Extension\CodeCoverageExtension
+
+code_coverage:
+  format:
+    - html
+    - clover
+  output:
+    html: coverage
+    clover: coverage.xml
+
+formatter.name: pretty

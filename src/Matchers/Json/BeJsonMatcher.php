@@ -1,11 +1,12 @@
 <?php
 
-namespace Karriere\PhpSpecMatchers\Matchers;
+namespace Karriere\PhpSpecMatchers\Matchers\Json;
 
+use Karriere\PhpSpecMatchers\JsonUtil;
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Matcher\Matcher;
 
-class BeAnyOfMatcher implements Matcher
+class BeJsonMatcher implements Matcher
 {
 
     /**
@@ -19,7 +20,7 @@ class BeAnyOfMatcher implements Matcher
      */
     public function supports($name, $subject, array $arguments)
     {
-        return $name === 'beAnyOf' && count($arguments) > 0;
+        return $name === 'beJson';
     }
 
     /**
@@ -32,13 +33,9 @@ class BeAnyOfMatcher implements Matcher
      */
     public function positiveMatch($name, $subject, array $arguments)
     {
-        if (!in_array($subject, $arguments)) {
+        if (!JsonUtil::isValidJson($subject)) {
             throw new FailureException(
-                sprintf(
-                    "the return value \"%s\" should be any of \"%s\"",
-                    $subject,
-                    implode(', ', $arguments)
-                )
+                'the return value is not a valid json string'
             );
         }
     }
@@ -53,13 +50,9 @@ class BeAnyOfMatcher implements Matcher
      */
     public function negativeMatch($name, $subject, array $arguments)
     {
-        if (in_array($subject, $arguments)) {
+        if (JsonUtil::isValidJson($subject)) {
             throw new FailureException(
-                sprintf(
-                    "the return value \"%s\" should not be any of \"%s\"",
-                    $subject,
-                    implode(', ', $arguments)
-                )
+                'the return value should not be a valid json string'
             );
         }
     }

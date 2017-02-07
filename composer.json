@@ -1,29 +1,37 @@
 {
-  "name": "karriere/phpspec-matchers",
-  "description": "phpspec extension with a collection of additional matchers",
-  "type": "phpspec-extension",
-  "homepage": "https://github.com/karriereat/phpspec-matchers",
-  "authors": [
-    {
-      "name": "Johannes Pichler",
-      "email": "johannes.pichler@karriere.at"
+    "name": "karriere/phpspec-matchers",
+    "description": "phpspec extension with a collection of additional matchers",
+    "type": "phpspec-extension",
+    "homepage": "https://github.com/karriereat/phpspec-matchers",
+    "authors": [
+        {
+            "name": "Johannes Pichler",
+            "email": "johannes.pichler@karriere.at"
+        }
+    ],
+    "keywords": [
+        "phpspec",
+        "matchers",
+        "tdd",
+        "json"
+    ],
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=5.6",
+        "phpspec/phpspec": "^3.2"
+    },
+    "require-dev": {
+        "henrikbjorn/phpspec-code-coverage": "^3.0",
+        "squizlabs/php_codesniffer": "^2.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Karriere\\PhpSpecMatchers\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "test": "vendor/bin/phpspec run",
+        "lint": "vendor/bin/phpcs src/ --standard=PSR2"
     }
-  ],
-  "keywords": [
-    "phpspec",
-    "matchers",
-    "tdd",
-    "json"
-  ],
-  "license": "Apache-2.0",
-  "require": {
-    "php": ">=5.6",
-    "phpspec/phpspec": "^3.2"
-  },
-  "autoload": {
-    "psr-4": {
-      "Karriere\\PhpSpecMatchers\\": "src/"
-    }
-  },
-  "minimum-stability": "stable"
 }

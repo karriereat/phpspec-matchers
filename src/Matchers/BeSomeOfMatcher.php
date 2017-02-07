@@ -5,7 +5,7 @@ namespace Karriere\PhpSpecMatchers\Matchers;
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Matcher\Matcher;
 
-class BeAnyOfMatcher implements Matcher
+class BeSomeOfMatcher implements Matcher
 {
 
     /**
@@ -19,7 +19,7 @@ class BeAnyOfMatcher implements Matcher
      */
     public function supports($name, $subject, array $arguments)
     {
-        return $name === 'beAnyOf' && count($arguments) > 0;
+        return $name === 'beSomeOf' && is_array($subject) && count($subject) > 0 && count($arguments) > 0;
     }
 
     /**
@@ -32,14 +32,16 @@ class BeAnyOfMatcher implements Matcher
      */
     public function positiveMatch($name, $subject, array $arguments)
     {
-        if (!in_array($subject, $arguments)) {
-            throw new FailureException(
-                sprintf(
-                    "the return value \"%s\" should be any of \"%s\"",
-                    $subject,
-                    implode(', ', $arguments)
-                )
-            );
+        foreach ($subject as $value) {
+            if (!in_array($value, $arguments)) {
+                throw new FailureException(
+                    sprintf(
+                        "the return value \"%s\" should be contained in \"%s\"",
+                        implode(', ', $subject),
+                        implode(', ', $arguments)
+                    )
+                );
+            }
         }
     }
 
@@ -53,14 +55,16 @@ class BeAnyOfMatcher implements Matcher
      */
     public function negativeMatch($name, $subject, array $arguments)
     {
-        if (in_array($subject, $arguments)) {
-            throw new FailureException(
-                sprintf(
-                    "the return value \"%s\" should not be any of \"%s\"",
-                    $subject,
-                    implode(', ', $arguments)
-                )
-            );
+        foreach ($subject as $value) {
+            if (in_array($value, $arguments)) {
+                throw new FailureException(
+                    sprintf(
+                        "the return value \"%s\" should not be contained in \"%s\"",
+                        implode(', ', $subject),
+                        implode(', ', $arguments)
+                    )
+                );
+            }
         }
     }
 

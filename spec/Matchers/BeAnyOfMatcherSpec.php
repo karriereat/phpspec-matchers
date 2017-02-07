@@ -15,17 +15,17 @@ class BeAnyOfMatcherSpec extends ObjectBehavior
         $this->shouldImplement(Matcher::class);
     }
 
-    function it_should_return_true_if_call_is_supported()
+    function it_should_return_true_if_call_to_matcher_is_supported()
     {
         $this->supports('beAnyOf', '', [1, 2, 3])->shouldReturn(true);
     }
 
-    function it_should_return_false_if_call_is_not_supported()
+    function it_should_return_false_if_call_to_matcher_is_not_supported()
     {
         $this->supports('anyOf', '', [1, 2, 3])->shouldReturn(false);
         $this->supports('beAnyOf', '', [])->shouldReturn(false);
     }
-    
+
     function it_should_succeed_on_positive_match()
     {
         $this->positiveMatch('beAnyOf', 1, [1, 2, 3])->shouldReturn(null);
