@@ -20,7 +20,7 @@ To be able to use the matchers you need to add the following definition to your 
 extensions:
     Karriere\PhpSpecMatchers\Extension: ~
 ```
-## Matchers
+## General Matchers
 
 ### beAnyOf
 This matcher allows to check the return value against a set of values. 
@@ -37,6 +37,15 @@ This matcher allows to check if the returned array values are contained in a set
 // $this->method() may return [1, 2, 3]
 $this->method()->shouldBeSomeOf(1, 2, 3, 4, 5);
 ```
+
+### rangeBetween
+This matcher allows to check if the given return value is inside a numeric range.
+```php
+$this->method()->shouldRangeBetween(2, 4);
+$this->method()->shouldRangeBetween(0.1, 0.9);
+```
+
+## Json Matchers
 
 ### beJson
 This matcher checks if the return value is a valid json string
