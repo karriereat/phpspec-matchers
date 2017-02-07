@@ -8,14 +8,12 @@ use Karriere\PhpSpecMatchers\Matchers\Json\BeJsonMatcher;
 use Karriere\PhpSpecMatchers\Matchers\Json\HaveJsonKeyMatcher;
 use Karriere\PhpSpecMatchers\Matchers\Json\HaveJsonKeyWithValueMatcher;
 use PhpSpec\ServiceContainer;
-use Prophecy\Argument;
 
 class Extension implements \PhpSpec\Extension
 {
-
     /**
      * @param ServiceContainer $container
-     * @param array $params
+     * @param array            $params
      */
     public function load(ServiceContainer $container, array $params)
     {

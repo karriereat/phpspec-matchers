@@ -7,15 +7,14 @@ use PhpSpec\Matcher\Matcher;
 
 class BeSomeOfMatcher implements Matcher
 {
-
     /**
      * Checks if matcher supports provided subject and matcher name.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
      *
-     * @return Boolean
+     * @return bool
      */
     public function supports($name, $subject, array $arguments)
     {
@@ -26,8 +25,9 @@ class BeSomeOfMatcher implements Matcher
      * Evaluates positive match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function positiveMatch($name, $subject, array $arguments)
@@ -36,7 +36,7 @@ class BeSomeOfMatcher implements Matcher
             if (!in_array($value, $arguments)) {
                 throw new FailureException(
                     sprintf(
-                        "the return value \"%s\" should be contained in \"%s\"",
+                        'the return value "%s" should be contained in "%s"',
                         implode(', ', $subject),
                         implode(', ', $arguments)
                     )
@@ -49,8 +49,9 @@ class BeSomeOfMatcher implements Matcher
      * Evaluates negative match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function negativeMatch($name, $subject, array $arguments)
@@ -59,7 +60,7 @@ class BeSomeOfMatcher implements Matcher
             if (in_array($value, $arguments)) {
                 throw new FailureException(
                     sprintf(
-                        "the return value \"%s\" should not be contained in \"%s\"",
+                        'the return value "%s" should not be contained in "%s"',
                         implode(', ', $subject),
                         implode(', ', $arguments)
                     )
@@ -71,7 +72,7 @@ class BeSomeOfMatcher implements Matcher
     /**
      * Returns matcher priority.
      *
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {
