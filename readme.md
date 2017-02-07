@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fetzi/phpspec-matchers.svg?branch=master)](https://travis-ci.org/fetzi/phpspec-matchers)
+
 # Collection of phpspec Matchers
 
 This package contains a collection of additional phpspec matchers.
