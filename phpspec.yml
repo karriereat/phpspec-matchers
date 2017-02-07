@@ -5,15 +5,4 @@ suites:
     src_path: src
     spec_prefix: spec
 
-extensions:
-    PhpSpecCodeCoverage\CodeCoverageExtension: ~
-
-code_coverage:
-  format:
-    - html
-    - clover
-  output:
-    html: coverage
-    clover: coverage.xml
-
 formatter.name: pretty

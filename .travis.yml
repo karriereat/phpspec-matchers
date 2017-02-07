@@ -10,7 +10,7 @@ before_script:
     - travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
-    - vendor/bin/phpspec run
+    - vendor/bin/phpspec run --config=phpspec-coverage.yml
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
