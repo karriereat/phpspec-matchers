@@ -8,15 +8,14 @@ use PhpSpec\Matcher\Matcher;
 
 class BeJsonMatcher implements Matcher
 {
-
     /**
      * Checks if matcher supports provided subject and matcher name.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
      *
-     * @return Boolean
+     * @return bool
      */
     public function supports($name, $subject, array $arguments)
     {
@@ -27,8 +26,9 @@ class BeJsonMatcher implements Matcher
      * Evaluates positive match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function positiveMatch($name, $subject, array $arguments)
@@ -44,8 +44,9 @@ class BeJsonMatcher implements Matcher
      * Evaluates negative match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function negativeMatch($name, $subject, array $arguments)
@@ -60,7 +61,7 @@ class BeJsonMatcher implements Matcher
     /**
      * Returns matcher priority.
      *
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {

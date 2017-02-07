@@ -8,15 +8,14 @@ use PhpSpec\Matcher\Matcher;
 
 class HaveJsonKeyWithValueMatcher implements Matcher
 {
-
     /**
      * Checks if matcher supports provided subject and matcher name.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
      *
-     * @return Boolean
+     * @return bool
      */
     public function supports($name, $subject, array $arguments)
     {
@@ -27,15 +26,16 @@ class HaveJsonKeyWithValueMatcher implements Matcher
      * Evaluates positive match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function positiveMatch($name, $subject, array $arguments)
     {
         if (!JsonUtil::isValidJson($subject)) {
             throw new FailureException(
-                "the return value should be valid json"
+                'the return value should be valid json'
             );
         }
 
@@ -49,7 +49,7 @@ class HaveJsonKeyWithValueMatcher implements Matcher
             if (!array_key_exists($key, $jsonData)) {
                 throw new FailureException(
                     sprintf(
-                        "the return value should contain key \"%s\" at level %d",
+                        'the return value should contain key "%s" at level %d',
                         $key,
                         $level
                     )
@@ -63,7 +63,7 @@ class HaveJsonKeyWithValueMatcher implements Matcher
         if ($jsonData !== $expectedValue) {
             throw new FailureException(
                 sprintf(
-                    "the return value should contain value \"%s\" but got \"%s\"",
+                    'the return value should contain value "%s" but got "%s"',
                     $expectedValue,
                     $jsonData
                 )
@@ -75,15 +75,16 @@ class HaveJsonKeyWithValueMatcher implements Matcher
      * Evaluates negative match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function negativeMatch($name, $subject, array $arguments)
     {
         if (!JsonUtil::isValidJson($subject)) {
             throw new FailureException(
-                "the return value should be valid json"
+                'the return value should be valid json'
             );
         }
 
@@ -95,7 +96,7 @@ class HaveJsonKeyWithValueMatcher implements Matcher
 
         throw new FailureException(
             sprintf(
-                "the return value should not contain key \"%s\" with value \"%s\"",
+                'the return value should not contain key "%s" with value "%s"',
                 $arguments[0],
                 $arguments[1]
             )
@@ -105,7 +106,7 @@ class HaveJsonKeyWithValueMatcher implements Matcher
     /**
      * Returns matcher priority.
      *
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {

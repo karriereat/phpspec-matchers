@@ -7,15 +7,14 @@ use PhpSpec\Matcher\Matcher;
 
 class BeAnyOfMatcher implements Matcher
 {
-
     /**
      * Checks if matcher supports provided subject and matcher name.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
      *
-     * @return Boolean
+     * @return bool
      */
     public function supports($name, $subject, array $arguments)
     {
@@ -26,8 +25,9 @@ class BeAnyOfMatcher implements Matcher
      * Evaluates positive match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function positiveMatch($name, $subject, array $arguments)
@@ -35,7 +35,7 @@ class BeAnyOfMatcher implements Matcher
         if (!in_array($subject, $arguments)) {
             throw new FailureException(
                 sprintf(
-                    "the return value \"%s\" should be any of \"%s\"",
+                    'the return value "%s" should be any of "%s"',
                     $subject,
                     implode(', ', $arguments)
                 )
@@ -47,8 +47,9 @@ class BeAnyOfMatcher implements Matcher
      * Evaluates negative match.
      *
      * @param string $name
-     * @param mixed $subject
-     * @param array $arguments
+     * @param mixed  $subject
+     * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function negativeMatch($name, $subject, array $arguments)
@@ -56,7 +57,7 @@ class BeAnyOfMatcher implements Matcher
         if (in_array($subject, $arguments)) {
             throw new FailureException(
                 sprintf(
-                    "the return value \"%s\" should not be any of \"%s\"",
+                    'the return value "%s" should not be any of "%s"',
                     $subject,
                     implode(', ', $arguments)
                 )
@@ -67,7 +68,7 @@ class BeAnyOfMatcher implements Matcher
     /**
      * Returns matcher priority.
      *
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {
