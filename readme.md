@@ -37,8 +37,8 @@ $this->method()->shouldNotBeAnyOf(1, 2, 3);
 * [beSomeOf](#besomeof)
 * [rangeBetween](#rangebetween)
 * [beEmpty](#beempty)
-* [beLess](#beless-or-belessthan)
-* [beGreater](#begreater-or-begreaterthan)
+* [beLessThan](#belessthan)
+* [beGreaterThan](#begreaterthan)
 
 **Json Matchers**
 * [beJson](#bejson)
@@ -76,17 +76,15 @@ This matcher allows to check if the given return value is empty. The implementat
 $this->method()->shouldBeEmpty();
 ```
 
-#### beLess or beLessThan
+#### beLessThan
 This matcher allows to check if the given return value is less than a specified value.
 ```php
-$this->method()->shouldBeLess(10);
 $this->method()->shouldBeLessThan(10);
 ```
 
-#### beGreater or beGreaterThan
+#### beGreaterThan
 This matcher allows to check if the given return value is greater than a specified value.
 ```php
-$this->method()->shouldBeGreater(10);
 $this->method()->shouldBeGreaterThan(10);
 ```
 
