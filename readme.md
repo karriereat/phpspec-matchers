@@ -20,9 +20,34 @@ To be able to use the matchers you need to add the following definition to your 
 extensions:
     Karriere\PhpSpecMatchers\Extension: ~
 ```
-## General Matchers
 
-### beAnyOf
+## Matcher Usage
+All custom matchers in this package implement the positive and the negative case. For example you can use:
+```php
+$this->method()->shouldBeAnyOf(1, 2, 3);
+```
+and also
+```php
+$this->method()->shouldNotBeAnyOf(1, 2, 3);
+```
+
+## Matchers
+**General Matchers**
+* [beAnyOf](#beanyof)
+* [beSomeOf](#besomeof)
+* [rangeBetween](#rangebetween)
+* [beEmpty](#beempty)
+* [beLess](#beless-or-belessthan)
+* [beGreater](#begreater-or-begreaterthan)
+
+**Json Matchers**
+* [beJson](#bejson)
+* [haveJsonKey](#havejsonkey)
+* [haveJsonKeyWithValue](#havejsonkeywithvalue)
+
+### General Matchers
+
+#### beAnyOf
 This matcher allows to check the return value against a set of values. 
 Assume you have some sort of random mechanism to get an integer between 2 and 4. The you can use the `shouldBeAnyOf` matcher:
 
@@ -30,7 +55,7 @@ Assume you have some sort of random mechanism to get an integer between 2 and 4.
 $this->method()->shouldBeAnyOf(2, 3, 4);
 ```
 
-### beSomeOf
+#### beSomeOf
 This matcher allows to check if the returned array values are contained in a set of values.
 
 ```php
@@ -38,23 +63,43 @@ This matcher allows to check if the returned array values are contained in a set
 $this->method()->shouldBeSomeOf(1, 2, 3, 4, 5);
 ```
 
-### rangeBetween
+#### rangeBetween
 This matcher allows to check if the given return value is inside a numeric range.
 ```php
 $this->method()->shouldRangeBetween(2, 4);
 $this->method()->shouldRangeBetween(0.1, 0.9);
 ```
 
-## Json Matchers
+#### beEmpty
+This matcher allows to check if the given return value is empty. The implementation uses the [empty](http://php.net/manual/en/function.empty.php) implementation.
+```php
+$this->method()->shouldBeEmpty();
+```
 
-### beJson
+#### beLess or beLessThan
+This matcher allows to check if the given return value is less than a specified value.
+```php
+$this->method()->shouldBeLess(10);
+$this->method()->shouldBeLessThan(10);
+```
+
+#### beGreater or beGreaterThan
+This matcher allows to check if the given return value is greater than a specified value.
+```php
+$this->method()->shouldBeGreater(10);
+$this->method()->shouldBeGreaterThan(10);
+```
+
+### Json Matchers
+
+#### beJson
 This matcher checks if the return value is a valid json string
 
 ```php
 $this->method()->shouldBeJson();
 ```
 
-### haveJsonKey
+#### haveJsonKey
 This matcher checks if the returned json string contains a json key.
 
 ```php
@@ -78,7 +123,7 @@ The key for this check is 'key.subkey'
 $this->method()->shouldHaveJsonKey('key.subkey');
 ```
 
-### haveJsonKeyWithValue
+#### haveJsonKeyWithValue
 This matcher checks if the returned json string contains the json key and the desired value.
 The dot syntax for subkeys can also be applied.
 
