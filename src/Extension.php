@@ -3,6 +3,9 @@
 namespace Karriere\PhpSpecMatchers;
 
 use Karriere\PhpSpecMatchers\Matchers\BeAnyOfMatcher;
+use Karriere\PhpSpecMatchers\Matchers\BeEmptyMatcher;
+use Karriere\PhpSpecMatchers\Matchers\BeGreaterMatcher;
+use Karriere\PhpSpecMatchers\Matchers\BeLessMatcher;
 use Karriere\PhpSpecMatchers\Matchers\BeSomeOfMatcher;
 use Karriere\PhpSpecMatchers\Matchers\Json\BeJsonMatcher;
 use Karriere\PhpSpecMatchers\Matchers\Json\HaveJsonKeyMatcher;
@@ -29,6 +32,30 @@ class Extension implements \PhpSpec\Extension
             'karriere.matchers.be_some_of',
             function ($c) {
                 return new BeSomeOfMatcher();
+            },
+            ['matchers']
+        );
+
+        $container->define(
+            'karriere.matchers.be_empty',
+            function ($c) {
+                return new BeEmptyMatcher();
+            },
+            ['matchers']
+        );
+
+        $container->define(
+            'karriere.matchers.be_less_than',
+            function ($c) {
+                return new BeLessMatcher();
+            },
+            ['matchers']
+        );
+
+        $container->define(
+            'karriere.matchers.be_greater_than',
+            function ($c) {
+                return new BeGreaterMatcher();
             },
             ['matchers']
         );

@@ -44,4 +44,22 @@ class ExtensionSpec extends ObjectBehavior
         $this->load($container, []);
         $container->define('karriere.matchers.have_json_key_with_value', Argument::type('callable'), ['matchers'])->shouldHaveBeenCalled();
     }
+
+    public function it_should_define_the_be_empty_matcher(ServiceContainer $container)
+    {
+        $this->load($container, []);
+        $container->define('karriere.matchers.be_empty', Argument::type('callable'), ['matchers'])->shouldHaveBeenCalled();
+    }
+
+    public function it_should_define_the_be_less_than_matcher(ServiceContainer $container)
+    {
+        $this->load($container, []);
+        $container->define('karriere.matchers.be_less_than', Argument::type('callable'), ['matchers'])->shouldHaveBeenCalled();
+    }
+
+    public function it_should_define_the_be_greater_than_matcher(ServiceContainer $container)
+    {
+        $this->load($container, []);
+        $container->define('karriere.matchers.be_greater_than', Argument::type('callable'), ['matchers'])->shouldHaveBeenCalled();
+    }
 }
