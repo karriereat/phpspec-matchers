@@ -37,6 +37,7 @@ $this->method()->shouldNotBeAnyOf(1, 2, 3);
 * [beSomeOf](#besomeof)
 * [rangeBetween](#rangebetween)
 * [beEmpty](#beempty)
+* [beNull](#benull)
 * [beLessThan](#belessthan)
 * [beGreaterThan](#begreaterthan)
 
@@ -74,6 +75,12 @@ $this->method()->shouldRangeBetween(0.1, 0.9);
 This matcher allows to check if the given return value is empty. The implementation uses the [empty](http://php.net/manual/en/function.empty.php) implementation.
 ```php
 $this->method()->shouldBeEmpty();
+```
+
+#### beNull
+This matcher allows to check if the given return value is null. The implementation uses the [is_null](http://php.net/manual/en/function.is-null.php) implementation.
+```php
+$this->method()->shouldBeNull();
 ```
 
 #### beLessThan

@@ -62,4 +62,10 @@ class ExtensionSpec extends ObjectBehavior
         $this->load($container, []);
         $container->define('karriere.matchers.be_greater_than', Argument::type('callable'), ['matchers'])->shouldHaveBeenCalled();
     }
+
+    public function it_should_define_the_be_null_matcher(ServiceContainer $container)
+    {
+        $this->load($container, []);
+        $container->define('karriere.matchers.be_null', Argument::type('callable'), ['matchers'])->shouldHaveBeenCalled();
+    }
 }

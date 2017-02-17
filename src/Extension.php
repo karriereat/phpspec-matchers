@@ -6,6 +6,7 @@ use Karriere\PhpSpecMatchers\Matchers\BeAnyOfMatcher;
 use Karriere\PhpSpecMatchers\Matchers\BeEmptyMatcher;
 use Karriere\PhpSpecMatchers\Matchers\BeGreaterMatcher;
 use Karriere\PhpSpecMatchers\Matchers\BeLessMatcher;
+use Karriere\PhpSpecMatchers\Matchers\BeNullMatcher;
 use Karriere\PhpSpecMatchers\Matchers\BeSomeOfMatcher;
 use Karriere\PhpSpecMatchers\Matchers\Json\BeJsonMatcher;
 use Karriere\PhpSpecMatchers\Matchers\Json\HaveJsonKeyMatcher;
@@ -40,6 +41,14 @@ class Extension implements \PhpSpec\Extension
             'karriere.matchers.be_empty',
             function ($c) {
                 return new BeEmptyMatcher();
+            },
+            ['matchers']
+        );
+
+        $container->define(
+            'karriere.matchers.be_null',
+            function ($c) {
+                return new BeNullMatcher();
             },
             ['matchers']
         );
