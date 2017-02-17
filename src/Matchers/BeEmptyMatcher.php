@@ -33,7 +33,24 @@ class BeEmptyMatcher implements Matcher
     public function positiveMatch($name, $subject, array $arguments)
     {
         if (!empty($subject)) {
-            throw new FailureException('The return value should be empty.');
+            if(is_array($subject)) {
+                $message = sprintf(
+                    'Expected an empty response but got an array (%s).',
+                    implode(',', $subject)
+                );
+            } else if(is_numeric($subject)) {
+                $message = sprintf(
+                    'Expected an empty response but got %d.',
+                    $subject
+                );
+            } else {
+                $message = sprintf(
+                    'Expected an empty response but got "%s".',
+                    $subject
+                );
+            }
+
+            throw new FailureException($message);
         }
     }
 

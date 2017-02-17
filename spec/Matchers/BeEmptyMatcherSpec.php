@@ -38,9 +38,9 @@ class BeEmptyMatcherSpec extends ObjectBehavior
 
     public function it_should_throw_an_exception_for_failing_positive_match()
     {
-        $this->shouldThrow(FailureException::class)->duringPositiveMatch('beEmpty', 'abc', []);
-        $this->shouldThrow(FailureException::class)->duringPositiveMatch('beEmpty', [1, 2, 3], []);
-        $this->shouldThrow(FailureException::class)->duringPositiveMatch('beEmpty', 1, []);
+        $this->shouldThrow(new FailureException('Expected an empty response but got "abc".'))->duringPositiveMatch('beEmpty', 'abc', []);
+        $this->shouldThrow(new FailureException('Expected an empty response but got an array (1,2,3).'))->duringPositiveMatch('beEmpty', [1, 2, 3], []);
+        $this->shouldThrow(new FailureException('Expected an empty response but got 1.'))->duringPositiveMatch('beEmpty', 1, []);
     }
 
     public function it_should_succeed_on_negative_match()
