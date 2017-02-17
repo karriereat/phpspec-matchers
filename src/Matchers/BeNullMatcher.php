@@ -14,7 +14,7 @@ class BeNullMatcher implements Matcher
      * @param mixed  $subject
      * @param array  $arguments
      *
-     * @return Boolean
+     * @return bool
      */
     public function supports($name, $subject, array $arguments)
     {
@@ -27,6 +27,7 @@ class BeNullMatcher implements Matcher
      * @param string $name
      * @param mixed  $subject
      * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function positiveMatch($name, $subject, array $arguments)
@@ -64,6 +65,7 @@ class BeNullMatcher implements Matcher
      * @param string $name
      * @param mixed  $subject
      * @param array  $arguments
+     *
      * @throws FailureException
      */
     public function negativeMatch($name, $subject, array $arguments)
@@ -76,7 +78,7 @@ class BeNullMatcher implements Matcher
     /**
      * Returns matcher priority.
      *
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {
