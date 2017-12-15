@@ -17,7 +17,7 @@ class HaveJsonKeyWithValueMatcher implements Matcher
      *
      * @return bool
      */
-    public function supports($name, $subject, array $arguments)
+    public function supports(string $name, $subject, array $arguments): bool
     {
         return $name === 'haveJsonKeyWithValue' && count($arguments) >= 2;
     }
@@ -31,7 +31,7 @@ class HaveJsonKeyWithValueMatcher implements Matcher
      *
      * @throws FailureException
      */
-    public function positiveMatch($name, $subject, array $arguments)
+    public function positiveMatch(string $name, $subject, array $arguments)
     {
         if (!JsonUtil::isValidJson($subject)) {
             throw new FailureException(
@@ -80,7 +80,7 @@ class HaveJsonKeyWithValueMatcher implements Matcher
      *
      * @throws FailureException
      */
-    public function negativeMatch($name, $subject, array $arguments)
+    public function negativeMatch(string $name, $subject, array $arguments)
     {
         if (!JsonUtil::isValidJson($subject)) {
             throw new FailureException(
@@ -108,7 +108,7 @@ class HaveJsonKeyWithValueMatcher implements Matcher
      *
      * @return int
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return 0;
     }

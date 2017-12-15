@@ -16,7 +16,7 @@ class BeEmptyMatcher implements Matcher
      *
      * @return bool
      */
-    public function supports($name, $subject, array $arguments)
+    public function supports(string $name, $subject, array $arguments): bool
     {
         return $name === 'beEmpty';
     }
@@ -30,7 +30,7 @@ class BeEmptyMatcher implements Matcher
      *
      * @throws FailureException
      */
-    public function positiveMatch($name, $subject, array $arguments)
+    public function positiveMatch(string $name, $subject, array $arguments)
     {
         if (!empty($subject)) {
             if (is_array($subject)) {
@@ -63,7 +63,7 @@ class BeEmptyMatcher implements Matcher
      *
      * @throws FailureException
      */
-    public function negativeMatch($name, $subject, array $arguments)
+    public function negativeMatch(string $name, $subject, array $arguments)
     {
         if (empty($subject)) {
             throw new FailureException('The return value should not be empty.');
@@ -75,7 +75,7 @@ class BeEmptyMatcher implements Matcher
      *
      * @return int
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return 0;
     }
