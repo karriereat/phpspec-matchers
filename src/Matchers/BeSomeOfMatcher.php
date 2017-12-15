@@ -16,7 +16,7 @@ class BeSomeOfMatcher implements Matcher
      *
      * @return bool
      */
-    public function supports($name, $subject, array $arguments)
+    public function supports(string $name, $subject, array $arguments): bool
     {
         return $name === 'beSomeOf' && is_array($subject) && count($subject) > 0 && count($arguments) > 0;
     }
@@ -30,7 +30,7 @@ class BeSomeOfMatcher implements Matcher
      *
      * @throws FailureException
      */
-    public function positiveMatch($name, $subject, array $arguments)
+    public function positiveMatch(string $name, $subject, array $arguments)
     {
         foreach ($subject as $value) {
             if (!in_array($value, $arguments)) {
@@ -54,7 +54,7 @@ class BeSomeOfMatcher implements Matcher
      *
      * @throws FailureException
      */
-    public function negativeMatch($name, $subject, array $arguments)
+    public function negativeMatch(string $name, $subject, array $arguments)
     {
         foreach ($subject as $value) {
             if (in_array($value, $arguments)) {
@@ -74,7 +74,7 @@ class BeSomeOfMatcher implements Matcher
      *
      * @return int
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return 0;
     }

@@ -6,7 +6,7 @@ suites:
     spec_prefix: spec
 
 extensions:
-    PhpSpecCodeCoverage\CodeCoverageExtension: ~
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
 
 code_coverage:
   format:

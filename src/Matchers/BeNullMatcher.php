@@ -16,7 +16,7 @@ class BeNullMatcher implements Matcher
      *
      * @return bool
      */
-    public function supports($name, $subject, array $arguments)
+    public function supports(string $name, $subject, array $arguments): bool
     {
         return $name === 'beNull';
     }
@@ -30,7 +30,7 @@ class BeNullMatcher implements Matcher
      *
      * @throws FailureException
      */
-    public function positiveMatch($name, $subject, array $arguments)
+    public function positiveMatch(string $name, $subject, array $arguments)
     {
         if (!is_null($subject)) {
             if (is_array($subject)) {
@@ -68,7 +68,7 @@ class BeNullMatcher implements Matcher
      *
      * @throws FailureException
      */
-    public function negativeMatch($name, $subject, array $arguments)
+    public function negativeMatch(string $name, $subject, array $arguments)
     {
         if (is_null($subject)) {
             throw new FailureException('The response should not be null');
@@ -80,7 +80,7 @@ class BeNullMatcher implements Matcher
      *
      * @return int
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return 0;
     }
