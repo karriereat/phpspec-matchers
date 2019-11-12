@@ -4,6 +4,7 @@ namespace Karriere\PhpSpecMatchers\Matchers;
 
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Matcher\Matcher;
+use PhpSpec\Wrapper\DelayedCall;
 
 class BeNullMatcher implements Matcher
 {
@@ -29,8 +30,10 @@ class BeNullMatcher implements Matcher
      * @param array  $arguments
      *
      * @throws FailureException
+     *
+     * @return DelayedCall|null
      */
-    public function positiveMatch(string $name, $subject, array $arguments)
+    public function positiveMatch(string $name, $subject, array $arguments): ?DelayedCall
     {
         if (!is_null($subject)) {
             if (is_array($subject)) {
@@ -57,6 +60,8 @@ class BeNullMatcher implements Matcher
 
             throw new FailureException($message);
         }
+
+        return null;
     }
 
     /**
@@ -67,12 +72,16 @@ class BeNullMatcher implements Matcher
      * @param array  $arguments
      *
      * @throws FailureException
+     *
+     * @return DelayedCall|null
      */
-    public function negativeMatch(string $name, $subject, array $arguments)
+    public function negativeMatch(string $name, $subject, array $arguments): ?DelayedCall
     {
         if (is_null($subject)) {
             throw new FailureException('The response should not be null');
         }
+
+        return null;
     }
 
     /**
