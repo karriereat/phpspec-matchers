@@ -17,21 +17,20 @@
     ],
     "license": "Apache-2.0",
     "require": {
-        "php": ">=7.0",
-        "phpspec/phpspec": "^4.2"
+        "php": ">=7.1",
+        "phpspec/phpspec": "^5.0 || ^6.0"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^2.8",
-        "leanphp/phpspec-code-coverage": "^4.0"
+        "squizlabs/php_codesniffer": "^3.5",
+        "friends-of-phpspec/phpspec-code-coverage": "^4.3"
     },
     "autoload": {
         "psr-4": {
             "Karriere\\PhpSpecMatchers\\": "src/"
         }
     },
-    "minimum-stability": "stable",
     "scripts": {
         "test": "vendor/bin/phpspec run",
-        "lint": "vendor/bin/phpcs src/ --standard=PSR2"
+        "lint": "vendor/bin/phpcs src/ --standard=PSR12"
     }
 }

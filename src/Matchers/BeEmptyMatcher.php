@@ -4,6 +4,7 @@ namespace Karriere\PhpSpecMatchers\Matchers;
 
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Matcher\Matcher;
+use PhpSpec\Wrapper\DelayedCall;
 
 class BeEmptyMatcher implements Matcher
 {
@@ -29,8 +30,10 @@ class BeEmptyMatcher implements Matcher
      * @param array  $arguments
      *
      * @throws FailureException
+     *
+     * @return DelayedCall|null
      */
-    public function positiveMatch(string $name, $subject, array $arguments)
+    public function positiveMatch(string $name, $subject, array $arguments): ?DelayedCall
     {
         if (!empty($subject)) {
             if (is_array($subject)) {
@@ -52,6 +55,8 @@ class BeEmptyMatcher implements Matcher
 
             throw new FailureException($message);
         }
+
+        return null;
     }
 
     /**
@@ -62,12 +67,16 @@ class BeEmptyMatcher implements Matcher
      * @param array  $arguments
      *
      * @throws FailureException
+     *
+     * @return DelayedCall|null
      */
-    public function negativeMatch(string $name, $subject, array $arguments)
+    public function negativeMatch(string $name, $subject, array $arguments): ?DelayedCall
     {
         if (empty($subject)) {
             throw new FailureException('The return value should not be empty.');
         }
+
+        return null;
     }
 
     /**
